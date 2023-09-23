@@ -1,49 +1,37 @@
-<template></template>
+<template>
+  <div class="post">
+    <h3>
+      {{ post.title }}
+    </h3>
+    <div class="content">
+      <p>{{ post.content }}</p>
+    </div>
+  </div>
+</template>
 <script>
-export default {};
+import getPosts from "../composables/getPosts";
+import { ref } from "vue";
+
+export default {
+  props: ["id"],
+
+  setup(props) {
+    const post = ref("");
+    getPosts().then((data) => {
+      post.value = data.find((e) => e.id == props.id);
+    });
+    return { post };
+  },
+};
 </script>
 
 <style>
-form {
+.post {
+  margin: 20px auto;
   background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-}
-label {
-  display: block;
-  color: #bbb;
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin: 20px 0 10px 0;
-}
-
-input {
-  padding: 10px;
-  border: 0;
-  border-bottom: 2px solid #ddd;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-textarea {
-  padding: 10px;
-  border: 0;
-  border: 2px solid #ddd;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  border-radius: 7px;
-}
-button {
-  display: block;
-  margin: 20px auto 0;
-  background: #76dd78;
-  color: #fff;
-  padding: 10px;
-  border: 0;
-  border-radius: 7px;
-  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  border-left: 4px solid #ff5500;
 }
 </style>

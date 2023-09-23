@@ -9,11 +9,20 @@
   </form>
 </template>
 <script>
+import { ref } from "vue";
+import { fb } from "../firebase/config";
+import { addDoc, collection } from "firebase/firestore/lite";
+
 export default {
-  data() {
-    return {
-      title: "",
-      content: "",
+  setup() {
+    const title = ref("");
+    const content = ref("");
+    const id = Date.now();
+
+    const post = {
+      title: title.value,
+      content: content.value,
+      id: id,
     };
   },
 };
