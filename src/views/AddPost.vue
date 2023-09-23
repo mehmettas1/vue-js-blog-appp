@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent="handleSubmit">
     <label for="">Title</label>
     <input type="text" v-model="title" required />
 
@@ -11,7 +11,7 @@
 <script>
 import { ref } from "vue";
 import { fb } from "../firebase/config";
-import { addDoc, collection } from "firebase/firestore/lite";
+import { addDoc, collection, getFirestore } from "firebase/firestore/lite";
 
 export default {
   setup() {
@@ -24,6 +24,10 @@ export default {
       content: content.value,
       id: id,
     };
+    const db = getFirestore();
+    const fbRef = collection(db, "post");
+
+    addDoc(fbRef, post);
   },
 };
 </script>
