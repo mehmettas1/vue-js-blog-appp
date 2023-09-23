@@ -1,14 +1,6 @@
 <template></template>
 <script>
-export default {
-  props: ["id"],
-  data() {
-    return {
-      title: "",
-      details: "",
-    };
-  },
-};
+export default {};
 </script>
 
 <style>

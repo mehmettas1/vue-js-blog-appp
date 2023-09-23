@@ -1,7 +1,7 @@
-import { ref } from "vue";
-import { fb } from "../firebase/config";
 import { async } from "@firebase/util";
-import { getFirestore, collection, getDocs } from "/firebase/firestore/lite";
+import { ref } from "vue";
+import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
+import { fb } from "../firebase/config";
 
 const getPosts = async () => {
   const db = getFirestore();

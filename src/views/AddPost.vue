@@ -13,7 +13,7 @@ export default {
   data() {
     return {
       title: "",
-      details: "",
+      content: "",
     };
   },
 };
