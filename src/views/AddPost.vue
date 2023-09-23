@@ -3,9 +3,9 @@
     <label for="">Title</label>
     <input type="text" v-model="title" required />
 
-    <label for="">Details</label>
-    <textarea v-model="details" required> </textarea>
-    <button>Add Project</button>
+    <label for="">Content:</label>
+    <textarea v-model="content" required> </textarea>
+    <button>Add Post</button>
   </form>
 </template>
 <script>

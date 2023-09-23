@@ -9,10 +9,10 @@ const routes = [
   },
   {
     path: "/Add",
-    name: "AddProject",
+    name: "AddPost",
 
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AddProject.vue"),
+      import(/* webpackChunkName: "about" */ "../views/AddPost.vue"),
   },
   {
     path: "/projects/:id",

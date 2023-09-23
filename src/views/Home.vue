@@ -1,25 +1,24 @@
 <template>
   <div class="home">
-    <div v-if="projects.length">
-      <div v-for="project in filteredProject" :key="project.index">
-        <SingleProject :project="project" />
+    <div v-if="posts.length">
+      <div v-for="post in posts" :key="post.index">
+        <SinglePost :posts="posts" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import SingleProject from "@/components/SingleProject.vue";
+import SinglePost from "@/components/SinglePost.vue";
 
 // @ is an alias to /src
 
 export default {
   name: "Home",
-  components: { SingleProject },
+  components: { SinglePost },
   data() {
     return {
-      projects: [],
-      current: "all",
+      posts: [],
     };
   },
 };
